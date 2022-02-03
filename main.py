@@ -2,7 +2,7 @@
 
 f = open('chat.html', 'r')
 text = f.read()
-words = ''
+words = []
 
 position = text.find('<div class="im-mess--text wall_module _im_log_body">')
 while text and position != -1:
@@ -10,7 +10,7 @@ while text and position != -1:
     check_pose = text.find('<')
     position = text.find('</div>')
     if position == check_pose:
-        words += text[:position] + ' '
+        words.append(text[:position])
     position = text.find('<div class="im-mess--text wall_module _im_log_body">')
 
 print(words)
